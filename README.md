@@ -37,12 +37,80 @@ A Node is a physical or virtual machine that serves as a worker in a Kubernetes 
 - as there is a lifecycle for the pod i.e., if the pod gets re-created a new IP address is assigned to the pod. this is inconvenient as this means that we need to again map the db with the new ip address, this is where the **service** comes in as this is a static ip address, and the service has no lifecycle, means that even if the pod dies the service does not. 
 
 
-## Ingress
-
  
 # Kubernetes Architecture:
 
 ## Cluster:
+
+A **Kubernetes cluster** is a group of machines (nodes) managed together, where Kubernetes orchestrates and runs containerized applications
+
+
+### Key Components
+
+
+**Control Plane:** The “brain” that manages the whole cluster, scheduling workloads, scaling, maintaining desired state, and exposing the Kubernetes API.
+
+**Worker Nodes:** These are servers (physical or virtual) that run your application Pods (containers).
+
+**Pods:** The smallest unit, which are groups of one or more containers running on nodes.
+
+#### How Clusters Work?
+Kubernetes clusters enable you to run applications at scale—if one node fails, your app can keep running on other nodes. The control plane makes decisions and tells worker nodes what to do, while worker nodes do the actual work by running containers inside Pods.
+
+## Control Plane
+
+The control plane is the "brain" of Kubernetes and is responsible for managing cluster state, scheduling deployments, scaling workloads, and enforcing configuration. Key components include:
+
+**API Server (kube-apiserver):** The cluster’s entry point, serving the Kubernetes API for handling requests.
+
+**etcd:** Distributed key-value store holding cluster state and configuration.
+
+**Scheduler (kube-scheduler):** Assigns pods to suitable nodes based on resource needs and constraints.
+
+**Controller Manager:** Runs built-in controllers to keep the cluster in its desired state, e.g., managing Replicates and Nodes.
+
+**Cloud Controller Manager:**
+Integrates with cloud provider APIs to provision resources like load balancers.
+
+The control plane communicates with worker nodes to tell them what to do (create/delete pods, monitor health, etc.)
+
+
+## Data Plane
+
+The data plane consists of the worker nodes and their components, which actually run the application containers. Each node manages resources, runs pods, and maintains networking:
+
+**Kubelet:** Ensures containers/pods are running according to the control plane’s instructions.
+
+**Kube-proxy:** Handles networking rules for service communication.
+
+**Container Runtime:** Runs the actual containers (Docker, containerd, etc.).
+
+The data plane executes work as dictated by the control plane.
+
+
+# Kubernetes Interfaces:
+
+- Container Runtime Interface(CRI)
+- Container Network interface(CNI)
+- Container Storage interface (CSI)
+
+
+
+# Kubernetes Resources:
+
+## Namespace:
+- Provide a mechanism to group resources within a cluster.
+- There are 4 initial namespaces: 
+    - default
+    - kube-system
+    - Kube-node-lease
+    - kube-public
+
+- by default, namespaces **DO NOT act as a network/security boundary.**
+
+
+
+
 
 
 
