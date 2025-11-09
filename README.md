@@ -75,7 +75,7 @@ Integrates with cloud provider APIs to provision resources like load balancers.
 The control plane communicates with worker nodes to tell them what to do (create/delete pods, monitor health, etc.)
 
 
-## Data Plane
+## Data Plane or worker nodes
 
 The data plane consists of the worker nodes and their components, which actually run the application containers. Each node manages resources, runs pods, and maintains networking:
 
@@ -94,19 +94,7 @@ The data plane executes work as dictated by the control plane.
 - Container Network interface(CNI)
 - Container Storage interface (CSI)
 
-
-
-# Kubernetes Resources:
-
-## Namespace:
-- Provide a mechanism to group resources within a cluster.
-- There are 4 initial namespaces: 
-    - default
-    - kube-system
-    - Kube-node-lease
-    - kube-public
-
-- by default, namespaces **DO NOT act as a network/security boundary.**
+---
 
 
 
