@@ -99,9 +99,32 @@ The data plane executes work as dictated by the control plane.
 
 # Pods:
 
+Pods can be created in Kubernetes using both imperative and declarative way just like in docker,
+
+**Imperative is by running the command:**
+
+```bash
+kubectl run nginx
+```
+
+**Declarative way is using JSON or YAML file and declaring the state of the pod in it**
+
+## Imperative way of creating a pod:
+
+The cmd to creating a pod is shown below:
+
+```bash
+#kubectl run pod-name --image=image-name/version
+
+kubctl run nginx-pod --image=nginx/latest
+
+```
+![imperative](./images/image.png)
 
 
+- Here the pod is first getting created and then in runnig state.
+- the **Ready** `1/1` is the number of container in the pod. here it is showing there is one container in the pod.
 
-
+## Declarative way of creating the pods:
 
 
