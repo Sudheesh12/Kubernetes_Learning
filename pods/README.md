@@ -133,3 +133,29 @@ root@ip-172-31-27-211:/home/ubuntu/kubernetes# kubectl run nginx --image=nginx:l
 root@ip-172-31-27-211:/home/ubuntu/kubernetes# kubectl run nginx --image=nginx:latest --dry-run=client -o json > test_pod_json.json
 
 ```
+
+
+- to get the node information for pod use the below commands:
+
+```bash
+kubectl get pod -o wide
+```
+
+`-o wide` will give the detailed information of the pod which also includes the node details:
+
+```bash
+root@ip-172-31-27-211:/home/ubuntu/kubernetes/Kubernetes_Learning# kubectl get pods -o wide
+NAME         READY   STATUS    RESTARTS       AGE   IP           NODE               NOMINATED NODE   READINESS GATES
+nginx-pod1   1/1     Running   2 (103m ago)   8h    10.244.2.2   cluster01-worker   <none>           <none>
+root@ip-172-31-27-211:/home/ubuntu/kubernetes/Kubernetes_Learning# 
+
+```
+
+- we can also use the `describe` command to get the pod details:
+
+```bash
+kubectl describe pod pod_name
+```
+
+
+
