@@ -1,0 +1,19 @@
+apiVersion: v1
+
+kind: Pod
+
+metadata:
+  name : nginx-pod1
+  labels:
+    env: demo
+    cloud: AWS
+    type: Frontend
+
+
+spec:
+  containers:
+  - name: nginx-cont-01
+    image: nginx123:latest
+    ports:
+    - containerPort: 80
+
