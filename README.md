@@ -256,3 +256,7 @@ root@ip-172-31-27-211:/home/ubuntu/kubernetes/Kubernetes_Learning#
 kubectl describe pod pod_name
 ```
 
+## Replication Controller:
+
+Replication controller unsures a specified amount of pods are running by monitoring and udjusting the pod count accross the cluster nodes, acting like a supervisor for pods similar to process managers but distributed.
+
