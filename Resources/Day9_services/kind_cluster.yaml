@@ -1,0 +1,18 @@
+# this cluster is to configure 3 nodes 1 control node and 2 worker node:
+# also we are mapping the external ports to the control node so that we can access the web page using the node ip and port number:
+#
+
+
+# three node (two workers) cluster config
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+- role: control-plane
+  extraPortMappings:
+  - containerPort: 30001 
+    hostPort: 30001
+
+- role: worker
+- role: worker
+
+

@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+  name: backend-deploy
+  labels:
+    env: test
+
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      env: test
+  template:
+    metadata:
+      labels:
+        env: test
+    spec:
+      containers:
+      - name: backend-cont
+        image: nginxdemos/hello
+        ports:
+        - containerPort: 80
+
+
